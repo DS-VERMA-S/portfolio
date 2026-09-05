@@ -20,10 +20,10 @@ if (document.modelContext?.registerTool) {
     Promise.resolve(document.modelContext.registerTool({
       name: 'navigate_portfolio',
       description: 'Navigate to a section of Sachin Verma’s portfolio.',
-      inputSchema: { type: 'object', properties: { section: { type: 'string', enum: ['top', 'work', 'about', 'experience', 'contact'] } }, required: ['section'], additionalProperties: false },
+      inputSchema: { type: 'object', properties: { section: { type: 'string', enum: ['top', 'work', 'about', 'experience', 'posts', 'contact'] } }, required: ['section'], additionalProperties: false },
       annotations: { readOnlyHint: false },
       execute: ({ section }) => {
-        if (!['top', 'work', 'about', 'experience', 'contact'].includes(section)) throw new Error('Unknown section');
+        if (!['top', 'work', 'about', 'experience', 'posts', 'contact'].includes(section)) throw new Error('Unknown section');
         const target = document.getElementById(section);
         target.scrollIntoView({ behavior: 'instant' });
         history.replaceState(null, '', '#' + section);

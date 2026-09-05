@@ -1,7 +1,7 @@
 """Validate and package the dependency-free static portfolio."""
 from html.parser import HTMLParser
 from pathlib import Path
-from shutil import copy2
+from shutil import copy2, copytree
 
 ROOT = Path(__file__).resolve().parent
 
@@ -34,4 +34,6 @@ output = ROOT / "dist"
 output.mkdir(exist_ok=True)
 for name in ("index.html", "styles.css", "script.js", "Sachin_Verma_Resume.pdf"):
     copy2(ROOT / name, output / name)
+if (ROOT / "assets").is_dir():
+    copytree(ROOT / "assets", output / "assets", dirs_exist_ok=True)
 print("Static build complete. All internal links and local assets validated.")
