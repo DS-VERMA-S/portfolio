@@ -263,7 +263,7 @@ html{scroll-padding-top:160px}
   background-color:#f7f8fb;
   background-image:
     linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.96) 36%,rgba(255,255,255,.74) 53%,rgba(255,255,255,.08) 78%),
-    url("assets/generated/hero-mixed-media-v2.png");
+    url("assets/generated/hero-selected-glasses.png");
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
@@ -299,7 +299,7 @@ html{scroll-padding-top:160px}
     min-height:690px;
     background-image:
       linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.94) 52%,rgba(255,255,255,.42) 78%),
-      url("assets/generated/hero-mixed-media-v2.png");
+      url("assets/generated/hero-selected-glasses.png");
     background-position:62% center;
   }
   .hero-copy{max-width:620px}
@@ -312,10 +312,30 @@ html{scroll-padding-top:160px}
     padding-bottom:48px;
     background-image:
       linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.96) 47%,rgba(255,255,255,.56) 72%,rgba(245,245,247,.92) 100%),
-      url("assets/generated/hero-mixed-media-v2.png");
+      url("assets/generated/hero-selected-glasses.png");
     background-size:auto 100%,auto 72%;
     background-position:center,right bottom;
   }
   .hero-description{max-width:100%}
   .hero-proof{margin-top:52px;padding:20px 18px;background:rgba(255,255,255,.82)}
+}
+
+/* Keep career highlights clear at every width. */
+.hero-proof{grid-template-columns:.9fr 1.3fr .9fr;max-width:800px}
+.hero-proof>div{min-width:0;padding:0 22px}
+.hero-proof>div:first-child{padding-left:0}
+.hero-proof>div:last-child{padding-right:0}
+.hero-proof strong{font-size:21px;line-height:1.18;overflow-wrap:break-word}
+
+@media(max-width:850px){
+  .hero-proof{grid-template-columns:repeat(3,minmax(0,1fr));max-width:700px}
+  .hero-proof>div{padding:0 16px}
+  .hero-proof strong{font-size:18px}
+}
+
+@media(max-width:600px){
+  .hero-proof{grid-template-columns:1fr;gap:0;max-width:100%}
+  .hero-proof>div,.hero-proof>div:first-child,.hero-proof>div:last-child{padding:14px 0}
+  .hero-proof>div+div{border-left:0;border-top:1px solid var(--line)}
+  .hero-proof strong{font-size:18px}
 }
