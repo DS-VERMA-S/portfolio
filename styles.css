@@ -252,3 +252,70 @@ html{scroll-padding-top:160px}
 .journal-link span{margin-left:12px}
 @media(max-width:850px){.journal{padding-top:80px;padding-bottom:80px}.site-header .nav-links{gap:0}.site-header .nav-links a{padding-left:9px;padding-right:9px}.journal-copy{padding:24px}}
 @media(max-width:600px){.journal-grid{grid-template-columns:1fr;gap:24px}.journal-all{display:inline-block;margin-top:24px}.journal-copy h3{font-size:24px}.journal-image{aspect-ratio:4/3}.site-header .nav-links{justify-content:space-around;gap:0}.site-header .nav-links a{font-size:13px;padding:8px 10px}}
+
+/* Mixed-media portrait hero, built around the existing visual theme. */
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:720px;
+  text-align:left;
+  background-color:#f7f8fb;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.96) 36%,rgba(255,255,255,.74) 53%,rgba(255,255,255,.08) 78%),
+    url("assets/generated/hero-mixed-media-v2.png");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:auto 0 0;
+  height:150px;
+  pointer-events:none;
+  background:linear-gradient(180deg,transparent,#f5f5f7 92%);
+}
+.hero-copy{position:relative;z-index:1;max-width:660px;margin-left:0}
+.hero-description{max-width:610px;margin-left:0;margin-right:0}
+.hero-actions{justify-content:flex-start}
+.hero-proof{
+  position:relative;
+  z-index:1;
+  max-width:760px;
+  margin-left:0;
+  padding:24px 28px;
+  border:1px solid rgba(205,214,231,.75);
+  border-radius:22px;
+  background:rgba(255,255,255,.7);
+  box-shadow:0 18px 55px rgba(30,56,105,.08);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+@media(max-width:850px){
+  .hero{
+    min-height:690px;
+    background-image:
+      linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.94) 52%,rgba(255,255,255,.42) 78%),
+      url("assets/generated/hero-mixed-media-v2.png");
+    background-position:62% center;
+  }
+  .hero-copy{max-width:620px}
+  .hero-proof{max-width:660px}
+}
+
+@media(max-width:600px){
+  .hero{
+    min-height:760px;
+    padding-bottom:48px;
+    background-image:
+      linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.96) 47%,rgba(255,255,255,.56) 72%,rgba(245,245,247,.92) 100%),
+      url("assets/generated/hero-mixed-media-v2.png");
+    background-size:auto 100%,auto 72%;
+    background-position:center,right bottom;
+  }
+  .hero-description{max-width:100%}
+  .hero-proof{margin-top:52px;padding:20px 18px;background:rgba(255,255,255,.82)}
+}
