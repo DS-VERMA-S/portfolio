@@ -32,7 +32,7 @@ for link in page.links:
 
 output = ROOT / "dist"
 output.mkdir(exist_ok=True)
-for name in ("index.html", "styles.css", "script.js", "Sachin_Verma_Resume.pdf"):
+for name in ("index.html", "styles.css", "script.js"):
     copy2(ROOT / name, output / name)
 if (ROOT / "assets").is_dir():
     copytree(ROOT / "assets", output / "assets", dirs_exist_ok=True)
